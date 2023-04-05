@@ -1,0 +1,33 @@
+main {
+  background-color: rgb(26, 26, 26);
+  height: 100vh;
+  color: white;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* CSS */
+.startButton {
+  background-color: #6908e8;
+  border-radius: 8px;
+  border-style: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  height: 40px;
+  margin: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+}
+
+.startButton:hover {
+  background-color: #8730fa;
+}
+.startButton:active {
+  background-color: #38047b;
+}

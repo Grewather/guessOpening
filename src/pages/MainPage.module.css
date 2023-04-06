@@ -10,9 +10,12 @@ main {
   text-align: center;
 }
 
-h2,
+h2 {
+  font-weight: 400;
+}
 h1 {
   font-weight: 500;
+  font-size: 30px;
 }
 .startButton {
   background-color: #6908e8;

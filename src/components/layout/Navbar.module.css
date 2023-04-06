@@ -10,6 +10,7 @@
 .liTxt {
   text-decoration: none;
   color: white;
+  margin: 10px;
 }
 .liTxt:hover {
   color: rgb(114, 114, 114);

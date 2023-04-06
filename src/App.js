@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <Routes>
+      <Routes basename="/guessOpening">
         <Route path="/guessOpening/" element={<MainPage />} />
         <Route path="/guessOpening/quiz" element={<QuizPage />} />
         <Route path="/guessOpening/credits" element={<CreditsPage />} />

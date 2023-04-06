@@ -1,6 +1,7 @@
+body {
+}
 main {
   background-color: rgb(26, 26, 26);
-  height: 100vh;
   color: white;
   font-size: small;
   display: flex;
@@ -9,7 +10,10 @@ main {
   text-align: center;
 }
 
-/* CSS */
+h2,
+h1 {
+  font-weight: 500;
+}
 .startButton {
   background-color: #6908e8;
   border-radius: 8px;

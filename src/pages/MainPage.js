@@ -9,7 +9,7 @@ function MainPage() {
         {/* <button className={styles.startButton} role="button">
         Start
       </button> */}
-        <Link to="/guessOpening/quiz" className={styles.startButton}>
+        <Link to="/quiz" className={styles.startButton}>
           Start
         </Link>
       </main>

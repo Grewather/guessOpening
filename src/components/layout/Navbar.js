@@ -16,17 +16,17 @@ function Navbar() {
       <h3 className={styles.brandText}>Guess Opening</h3>
       <ul className={`${toggleNav} navmenu`}>
         <li>
-          <Link className={styles.liTxt} to="/guessOpening/">
+          <Link className={styles.liTxt} to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link className={styles.liTxt} to="/guessOpening/quiz">
+          <Link className={styles.liTxt} to="/quiz">
             Play
           </Link>
         </li>
         <li>
-          <Link className={styles.liTxt} to="/guessOpening/credits">
+          <Link className={styles.liTxt} to="/credits">
             Credits
           </Link>
         </li>

@@ -9,10 +9,10 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <Routes basename="/guessOpening">
-        <Route path="/guessOpening/" element={<MainPage />} />
-        <Route path="/guessOpening/quiz" element={<QuizPage />} />
-        <Route path="/guessOpening/credits" element={<CreditsPage />} />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/credits" element={<CreditsPage />} />
       </Routes>
       <Footer></Footer>
     </>

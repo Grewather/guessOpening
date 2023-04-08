@@ -1,8 +1,8 @@
 import styles from "./QuizPage.module.css";
+import Results from "../components/Results";
 import Chessboard from "chessboardjsx";
 import { useState } from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-import { RxCross1 } from "react-icons/rx";
+import Answers from "../components/Answers";
 
 function QuizPage() {
   let [correct, setCorrect] = useState(0);
@@ -170,39 +170,6 @@ function QuizPage() {
       Fen: "rnbqkbnr/pppppppp/8/8/6P1/8/PPPPPP1P/RNBQKBNR b KQkq g3 0 1",
     },
   ];
-  const openingsForAnswers = [
-    "Sicilian Defense",
-    "Ruy López Opening",
-    "Caro-Kann Defense",
-    "Italian Game",
-    "Scandinavian Defense",
-    "Pirc Defense",
-    "Alekhine's Defense",
-    "King's Gambit",
-    "Scotch Game",
-    "Vienna Game",
-    "Queen's Gambit",
-    "Slav Defense",
-    "King's Indian Defense",
-    "Nimzo-Indian Defense",
-    "Queen's Indian Defense",
-    "Catalan Opening",
-    "Bogo-Indian Defense",
-    "Grünfeld Defense",
-    "Dutch Defense",
-    "Trompowsky Attack",
-    "Benko Gambit",
-    "London System",
-    "Benoni Defense: Modern Variation",
-    "Réti Opening",
-    "English Opening",
-    "Bird's Opening",
-    "King's Indian Attack",
-    "King's Fianchetto Opening",
-    "Nimzowitsch-Larsen Attack",
-    "Polish Opening",
-    "Grob Opening",
-  ];
 
   let randomOpening = () => {
     let randomNumber = Math.floor(Math.random() * openings.length);
@@ -210,80 +177,26 @@ function QuizPage() {
     return choosenOpening;
   };
   let [openingState, setOpeningState] = useState(randomOpening);
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      // Generate random number
-      var j = Math.floor(Math.random() * (i + 1));
-
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-
-    return array;
-  }
-  function generateAnswers() {
-    let answers = [openingState.openingName];
-    let used = [openingState.openingName];
-    for (let i = 1; i <= 2; i++) {
-      let randomNumber = Math.floor(Math.random() * 31);
-
-      if (used.includes(openingsForAnswers[randomNumber])) {
-        console.log(used);
-        continue;
-      } else {
-        answers.push(openingsForAnswers[randomNumber]);
-        used.push(openingsForAnswers[randomNumber]);
-      }
-    }
-    // console.log(answers);
-    // console.log("used", used);
-    // console.log(openingsForAnswers);
-    // console.log("answers", answers);
-    return shuffleArray(answers);
-  }
-
-  let answersOpening = generateAnswers();
-  let checkAnswer = (answer) => {
-    if (answer === openingState.openingName) {
-      setCorrect(correct + 1);
-    } else {
-      setIncorrect(incorrect + 1);
-    }
-    setOpeningState(randomOpening);
-
-    console.log("correct: ", correct, " incorrect: ", incorrect);
-  };
 
   return (
     <main>
       <h1>Guess Opening!</h1>
-      <div className={styles.results}>
-        <div className={styles.numberResult}>
-          <AiOutlineCheck size="30" />
-          <div>{correct}</div>
-        </div>
-        <div className={styles.numberResult}>
-          <RxCross1 />
-          <div>{incorrect}</div>
-        </div>
-      </div>
+      <Results correct={correct} incorrect={incorrect} />
       <Chessboard
         className={styles.answersContainer}
         width={300}
         position={openingState.Fen}
       />
       <div className={styles.answersContainer}>
-        <div>
-          {answersOpening.map((element) => (
-            <button
-              onClick={(e) => checkAnswer(element)}
-              className={styles.blockButton}
-            >
-              {element}
-            </button>
-          ))}
-        </div>
+        <Answers
+          randomOpening={randomOpening}
+          setOpeningState={setOpeningState}
+          openingState={openingState}
+          correct={correct}
+          incorrect={incorrect}
+          setCorrect={setCorrect}
+          setIncorrect={setIncorrect}
+        />
       </div>
       <div className="result"></div>
     </main>

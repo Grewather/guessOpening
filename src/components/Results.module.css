@@ -1,0 +1,11 @@
+.results {
+  font-size: 30px;
+  display: flex;
+}
+.numberResult {
+  display: flex;
+  align-items: center;
+}
+.numberResult > div {
+  padding: 10px;
+}

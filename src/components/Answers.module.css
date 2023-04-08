@@ -1,0 +1,18 @@
+.blockButton {
+  background-color: rgb(4, 116, 79);
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  border: 0;
+  margin-top: 5px;
+  width: 10rem;
+}
+.blockButton:hover {
+  background-color: rgb(3, 71, 48);
+}
+.blockButton:active {
+  background-color: rgb(43, 187, 139);
+}
+.blockButton {
+  display: block;
+}

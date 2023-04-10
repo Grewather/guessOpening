@@ -6,6 +6,7 @@
   border: 0;
   margin-top: 5px;
   width: 10rem;
+  cursor: pointer;
 }
 .blockButton:hover {
   background-color: rgb(3, 71, 48);

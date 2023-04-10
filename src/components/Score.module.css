@@ -1,8 +1,8 @@
 .results {
-  font-size: 30px;
-  display: flex;
 }
 .numberResult {
+  font-size: 23px;
+
   display: flex;
   align-items: center;
 }

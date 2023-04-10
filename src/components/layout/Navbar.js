@@ -5,10 +5,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 function Navbar() {
   const [navState, setNavState] = useState(false);
-  function handleClick() {
+  let handleClick = () => {
     setNavState((navState) => !navState);
     console.log(navState);
-  }
+  };
 
   let toggleNav = navState ? styles.active : styles.unactive;
   return (

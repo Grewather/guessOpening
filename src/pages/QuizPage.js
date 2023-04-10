@@ -1,8 +1,10 @@
 import styles from "./QuizPage.module.css";
-import Results from "../components/Results";
+// import Score from "../components/Score";
 import Chessboard from "chessboardjsx";
 import { useState } from "react";
 import Answers from "../components/Answers";
+import Rounds from "../components/Rounds";
+import Result from "../components/Result";
 
 function QuizPage() {
   let [correct, setCorrect] = useState(0);
@@ -177,28 +179,43 @@ function QuizPage() {
     return choosenOpening;
   };
   let [openingState, setOpeningState] = useState(randomOpening);
-
+  let [round, setRound] = useState(1);
+  let [isEnd, setIsEnd] = useState(false);
   return (
     <main>
-      <h1>Guess Opening!</h1>
-      <Results correct={correct} incorrect={incorrect} />
-      <Chessboard
-        className={styles.answersContainer}
-        width={300}
-        position={openingState.Fen}
-      />
-      <div className={styles.answersContainer}>
-        <Answers
-          randomOpening={randomOpening}
-          setOpeningState={setOpeningState}
-          openingState={openingState}
+      {isEnd ? (
+        <Result
           correct={correct}
           incorrect={incorrect}
-          setCorrect={setCorrect}
-          setIncorrect={setIncorrect}
+          setIsEnd={setIsEnd}
+          setRound={setRound}
         />
-      </div>
-      <div className="result"></div>
+      ) : (
+        <>
+          <h1>Guess Opening!</h1>
+          <Rounds round={round}></Rounds>
+          {/* <Score correct={correct} incorrect={incorrect} /> */}
+          <Chessboard
+            className={styles.answersContainer}
+            width={300}
+            position={openingState.Fen}
+          />
+          <div className={styles.answersContainer}>
+            <Answers
+              randomOpening={randomOpening}
+              setOpeningState={setOpeningState}
+              openingState={openingState}
+              correct={correct}
+              incorrect={incorrect}
+              setCorrect={setCorrect}
+              setRound={setRound}
+              round={round}
+              setIncorrect={setIncorrect}
+              setIsEnd={setIsEnd}
+            />
+          </div>
+        </>
+      )}
     </main>
   );
 }

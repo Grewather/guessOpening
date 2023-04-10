@@ -34,9 +34,8 @@ function Answers(props) {
     "Polish Opening",
     "Grob Opening",
   ];
-  function shuffleArray(array) {
+  let shuffleArray = (array) => {
     for (var i = array.length - 1; i > 0; i--) {
-      // Generate random number
       var j = Math.floor(Math.random() * (i + 1));
 
       var temp = array[i];
@@ -45,8 +44,8 @@ function Answers(props) {
     }
 
     return array;
-  }
-  function generateAnswers() {
+  };
+  let generateAnswers = () => {
     let answers = [props.openingState.openingName];
     let used = [props.openingState.openingName];
     for (let i = 1; i <= 2; i++) {
@@ -60,23 +59,23 @@ function Answers(props) {
         used.push(openingsForAnswers[randomNumber]);
       }
     }
-    // console.log(answers);
-    // console.log("used", used);
-    // console.log(openingsForAnswers);
-    // console.log("answers", answers);
+
     return shuffleArray(answers);
-  }
+  };
 
   let answersOpening = generateAnswers();
   let checkAnswer = (answer) => {
-    if (answer === props.openingState.openingName) {
-      props.setCorrect(props.correct + 1);
+    if (props.round >= 10) {
+      props.setIsEnd(true);
     } else {
-      props.setIncorrect(props.incorrect + 1);
+      if (answer === props.openingState.openingName) {
+        props.setCorrect(props.correct + 1);
+      } else {
+        props.setIncorrect(props.incorrect + 1);
+      }
+      props.setOpeningState(props.randomOpening);
+      props.setRound(props.round + 1);
     }
-    props.setOpeningState(props.randomOpening);
-
-    // console.log("correct: ", correct, " incorrect: ", incorrect);
   };
   return (
     <div>

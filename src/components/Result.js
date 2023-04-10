@@ -4,6 +4,8 @@ function Result(props) {
   let tryAgain = () => {
     props.setIsEnd(false);
     props.setRound(1);
+    props.setCorrect(0);
+    props.setIncorrect(0);
   };
   return (
     <div>

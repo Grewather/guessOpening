@@ -189,6 +189,8 @@ function QuizPage() {
           incorrect={incorrect}
           setIsEnd={setIsEnd}
           setRound={setRound}
+          setCorrect={setCorrect}
+          setIncorrect={setIncorrect}
         />
       ) : (
         <>

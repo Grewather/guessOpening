@@ -72,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## TODO
 
 - [x] Split code into components
-- [ ] Result Page
+- [x] Result Page

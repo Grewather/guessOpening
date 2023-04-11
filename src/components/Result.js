@@ -3,7 +3,7 @@ import styles from "./Result.module.css";
 function Result(props) {
   let tryAgain = () => {
     props.setIsEnd(false);
-    props.setRound(1);
+    props.setRound(0);
     props.setCorrect(0);
     props.setIncorrect(0);
   };

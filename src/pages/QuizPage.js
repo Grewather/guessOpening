@@ -179,7 +179,7 @@ function QuizPage() {
     return choosenOpening;
   };
   let [openingState, setOpeningState] = useState(randomOpening);
-  let [round, setRound] = useState(1);
+  let [round, setRound] = useState(0);
   let [isEnd, setIsEnd] = useState(false);
   return (
     <main>

@@ -65,7 +65,7 @@ function Answers(props) {
 
   let answersOpening = generateAnswers();
   let checkAnswer = (answer) => {
-    if (props.round >= 10) {
+    if (props.round === 10) {
       props.setIsEnd(true);
     } else {
       if (answer === props.openingState.openingName) {
